@@ -30,14 +30,4 @@ public class AtmLocatorService {
         return atmLocations;
     }
 
-    public List<AtmLocation> getAtmLocationsfromINGByCity(String city) throws Exception {
-        List<AtmLocation> locations = new ArrayList<>();
-        List<AtmLocation> atmLocationsfromING = getAtmLocations();
-        for (AtmLocation location : atmLocationsfromING) {
-            if (city.equalsIgnoreCase(location.getAddress().getCity())) {
-                locations.add(location);
-            }
-        }
-        return locations;
-    }
 }

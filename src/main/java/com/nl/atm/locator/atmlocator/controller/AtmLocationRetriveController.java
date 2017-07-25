@@ -18,7 +18,7 @@ public class AtmLocationRetriveController {
     private AtmLocatorService atmLocatorService;
 
 
-    @GetMapping(value = "/locateAtm", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getAtmLocations", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<AtmLocation> getATMLocations() throws Exception {
         List<AtmLocation> responseObject= new ArrayList<>();

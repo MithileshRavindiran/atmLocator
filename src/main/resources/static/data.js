@@ -2,18 +2,26 @@ $(document).ready(function() {
 
     var mytable = $('#atmLocations').DataTable( {
         "ajax": {
-            "url": "./locateAtm",
+            "url": "./getAtmLocations",
             "dataSrc": ""
         },
         columns: [
-            { data: "address.street" },
-            { data: "address.housenumber" },
-            { data: "address.postalcode" },
-            { data: "address.city" },
-            { data: "address.geoLocation.latitude" },
-            { data: "address.geoLocation.longitude" },
-            { data: "distance" },
-            { data: "bank" }
+            { data: "address.street",
+                "defaultContent": ""},
+            { data: "address.housenumber",
+                "defaultContent": ""},
+            { data: "address.postalcode",
+                "defaultContent": ""},
+            { data: "address.city",
+                "defaultContent": ""},
+            { data: "address.geoLocation.latitude",
+                "defaultContent": ""},
+            { data: "address.geoLocation.longitude",
+                "defaultContent": ""},
+            { data: "distance",
+                "defaultContent": ""},
+            { data: "bank",
+                "defaultContent": ""}
         ],
         dom: 'Bfrtip'
     } );

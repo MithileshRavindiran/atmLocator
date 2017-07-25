@@ -17,6 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
+                .antMatchers("/css/**","/images/**").permitAll()
+                .antMatchers("/locateAtm").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -28,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configureAuth(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");
