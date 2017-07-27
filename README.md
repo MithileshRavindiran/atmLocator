@@ -8,7 +8,7 @@ Technologies/Libraries Used
     Java (1.8)
     Spring Boot Web --> Web application is hosted along with this application to display in GUI
     Spring Boot Security  --> Added security to restrict only authorized users to use the applications 
-                              certain paths
+                              certain paths (username: user, password: password)
     Spring Boot Thymeleaf  --> used as a template engine to display in GUI
     Apache Camel Swagger,Servlet,Boot Starter --> To configure a RestDSL API from Apache Camel
     jQuery, Datatables, bootstrap
