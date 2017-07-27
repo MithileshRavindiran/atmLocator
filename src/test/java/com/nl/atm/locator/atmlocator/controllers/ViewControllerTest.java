@@ -52,9 +52,20 @@ public class ViewControllerTest {
     @Test
     public void testLoadAtm() throws Exception {
 
-        this.mockMvc.perform(get("/atm"))
+        this.mockMvc.perform(get("/locateAllAtms"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("views/atm"));
+    }
+
+    /**
+     * Test the loading of ATM location retriver application
+     */
+    @Test
+    public void testLoadAtmCity() throws Exception {
+
+        this.mockMvc.perform(get("/locateCityAtms"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("views/cityAtm"));
     }
 
 

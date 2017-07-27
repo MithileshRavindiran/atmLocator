@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Objects;
 
+/**
+ * Domain object Address holds the address details of the Atm's
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Address {
 

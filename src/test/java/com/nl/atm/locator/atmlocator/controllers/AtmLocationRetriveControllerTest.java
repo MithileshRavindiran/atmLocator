@@ -40,6 +40,5 @@ public class AtmLocationRetriveControllerTest {
         when(atmLocatorService.getAtmLocations()).thenReturn(atmLocations);
         List<AtmLocation> atmLocationsfromING = atmLocationRetriveController.getATMLocations();
         assertEquals(atmLocationsfromING.size(),2);
-
     }
 }

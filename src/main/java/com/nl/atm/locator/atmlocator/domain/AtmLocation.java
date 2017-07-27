@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+/**
+ * AtmLocation is a Domain Object holds the address , distance and bank to which Atm belongs
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AtmLocation {
 

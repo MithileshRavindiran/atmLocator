@@ -18,21 +18,30 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
+/**
+ * Configuration class to consume the rest service call from the application
+ *
+ */
 @Configuration
 public class RestConfiguration {
     /**
-     * Atm Locator Rest template
-     * @return the rest template
+     * Atm Locator Rest template to call the rest service of ING
+     * @return the rest template {@link RestTemplate}
      */
     @Bean(name = "atmLocatorRestTemplate")
     public RestTemplate getRestTemplate() {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setErrorHandler(getRestErrorHandler());
         restTemplate.setRequestFactory(createRequestFactory());
+        // message converters was not used since the consuming service is response is not properly formatted from the provider
         //restTemplate.setMessageConverters(Arrays.asList(getMappingJacksonHttpMessageConverter()));
         return restTemplate;
     }
 
+    /**
+     * Rest Error Handler to display error status of the call in case any failure occurs
+     * @return ResponseErrorHandles {@link ResponseErrorHandler}
+     */
     private ResponseErrorHandler getRestErrorHandler() {
         return new DefaultResponseErrorHandler() {
             @Override
@@ -42,6 +51,10 @@ public class RestConfiguration {
         };
     }
 
+    /**
+     * Method to create the Request Factory to set the request timeout and connection timeour
+     * @return ClientHttpRequestFactory {@link ClientHttpRequestFactory}
+     */
     private ClientHttpRequestFactory createRequestFactory() {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setReadTimeout(10 * 1000);
@@ -50,9 +63,10 @@ public class RestConfiguration {
     }
 
     /**
+     *
      * @return the jackson converter for converting to and from JSON(P)
+     *
      */
-    @Bean(name = "coreMessageConverter")
     public MappingJackson2HttpMessageConverter getMappingJacksonHttpMessageConverter() {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         converter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -63,9 +77,9 @@ public class RestConfiguration {
     }
 
     /**
+     * Object mapper used in Json jackson converter
      * @return ObjectMapper
      */
-    @Bean(name = "coreObjectMapper")
     public ObjectMapper getObjectMapper() {
         return new ObjectMapper()
                 .registerModule(new JodaModule())
@@ -73,4 +87,5 @@ public class RestConfiguration {
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
+
 }

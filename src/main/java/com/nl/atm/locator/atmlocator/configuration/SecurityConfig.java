@@ -9,16 +9,21 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * SecurityConfig class is used for configuring spring security rules
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/", "/home","/camel-rest-jpa/**").permitAll()
                 .antMatchers("/css/**","/images/**").permitAll()
-                .antMatchers("/locateAtm").hasRole("USER")
+                .antMatchers("/locateAllAtms","/locateCityAtms").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -33,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureAuth(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                .withUser("user")
+                .password("password")
+                .roles("USER");
     }
 }

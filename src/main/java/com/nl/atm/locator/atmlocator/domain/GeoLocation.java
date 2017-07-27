@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+/**
+ * Geo Location is Domain object that holds the latitude and longitude co ordinates of the atm
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GeoLocation {
 
@@ -69,7 +72,7 @@ public class GeoLocation {
         if (obj == null || getClass() != obj.getClass()) return false;
         GeoLocation geoLocation = (GeoLocation) obj;
         return Objects.equals(this.getLatitude(), geoLocation.getLatitude()) &&
-                Objects.equals(this.getLongitude(), geoLocation.getLongitude()) ;
+                Objects.equals(this.getLongitude(), geoLocation.getLongitude());
     }
 
     @Override
