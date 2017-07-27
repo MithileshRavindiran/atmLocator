@@ -42,7 +42,7 @@ public class GeoLocationTest {
         assertTrue(geoLocation.hashCode()==geoLocation.hashCode());
         assertFalse(geoLocation.equals(geoLocate));
         assertFalse(geoLocation.hashCode()==geoLocate.hashCode());
-        assertEquals("GeoLocation{latitude='4.358505', longitude='52.076099'}",geoLocation.toString());
+        assertEquals("GeoLocation{latitude='52.076097', longitude='4.358504'}",geoLocation.toString());
     }
 
 
