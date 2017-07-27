@@ -50,7 +50,11 @@ Build using Maven
 
 Import in maven
 
-Run the FindAtmLocationApplication 
+Run the FindAtmLocationApplication
+
+IDE used:
+
+IntelliJ IDEA 2017.2 x64 
  
  
       
