@@ -32,7 +32,7 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
      */
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
-        ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/camel-rest-jpa/*");
+        ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/camel-rest/*");
         registration.setName("CamelServlet");
         return registration;
     }

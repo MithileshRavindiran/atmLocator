@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
  * Class to Configure  Rest end point and Swagger for a fidnding the list of atms by city
  */
 @Component
-public class LocationRetriverController extends RouteBuilder {
+public class CityAtmsLocationRetriverController extends RouteBuilder {
     @Override
     public void configure() {
         restConfiguration()
-                .contextPath("/camel-rest-jpa").apiContextPath("/api-doc")
+                .apiContextPath("/api-doc")
                 .apiProperty("api.title", "Camel REST API")
                 .apiProperty("api.version", "1.0")
                 .apiProperty("cors", "true")

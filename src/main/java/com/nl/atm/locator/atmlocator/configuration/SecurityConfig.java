@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home","/camel-rest-jpa/**").permitAll()
+                .antMatchers("/", "/home","/camel-rest/**").permitAll()
                 .antMatchers("/css/**","/images/**").permitAll()
                 .antMatchers("/locateAllAtms","/locateCityAtms").hasRole("USER")
                 .anyRequest().authenticated()
@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureAuth(AuthenticationManagerBuilder auth) throws Exception {
+    public void configureAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
                 .withUser("user")

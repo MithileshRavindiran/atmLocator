@@ -31,7 +31,7 @@ $(document).ready(function() {
         var val = $("#cityname").val();
         var url;
         if (val != null && val) {
-            url = "./camel-rest-jpa/findAtms/"+ val;
+            url = "./camel-rest/findAtms/"+ val;
         } else {
             url =  "./getAtmLocations";
         }
