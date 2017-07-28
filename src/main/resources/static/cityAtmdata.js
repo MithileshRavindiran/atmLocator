@@ -42,8 +42,8 @@ $(document).ready(function() {
             cache: false
         }).done(function (result) {
             Table.rows.add(result).draw();
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-
+        }).fail(function (jqXHR, textStatus, errorThrown,result) {
+            alert(result.sEcho);
         });
     });
 
