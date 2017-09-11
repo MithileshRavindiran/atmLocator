@@ -21,7 +21,7 @@ public class CityAtmsLocationRetriverController extends RouteBuilder {
                 .bindingMode(RestBindingMode.json);
 
         rest("/findAtms").description(" rest service for get atm locations on a city ")
-                .get("/{city}").description("The list of all atms in a city")
+                .get("/{city}").description("The list of all automatic teller machine in a city")
                 .route().routeId("atms-api")
                 .bean(AtmLocatorService.class, "getAtmLocationsfromINGByCity(${header.city})");
     }
